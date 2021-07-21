@@ -12,6 +12,9 @@ CVE-2020-8285.patch
 CVE-2020-8286.patch
 CVE-2021-22876.patch
 CVE-2021-22890.patch
+CVE-2021-22898.patch
+CVE-2021-22924.patch
+CVE-2021-22925.patch
 
 # do not add patches below
 90_gnutls.patch
