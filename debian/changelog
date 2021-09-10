@@ -1,3 +1,21 @@
+curl (7.68.0-1ubuntu2.7) focal-security; urgency=medium
+
+  * SECURITY UPDATE: Protocol downgrade required TLS bypassed
+    - debian/patches/CVE-2021-22946-pre1.patch: separate FTPS from FTP over
+      HTTPS proxy in lib/ftp.c, lib/urldata.h.
+    - debian/patches/CVE-2021-22946.patch: do not ignore --ssl-reqd in
+      lib/ftp.c, lib/imap.c, lib/pop3.c, tests/data/Makefile.inc,
+      tests/data/test984, tests/data/test985, tests/data/test986.
+    - CVE-2021-22946
+  * SECURITY UPDATE: STARTTLS protocol injection via MITM
+    - debian/patches/CVE-2021-22947.patch: reject STARTTLS server response
+      pipelining in lib/ftp.c, lib/imap.c, lib/pop3.c, lib/smtp.c,
+      tests/data/Makefile.inc, tests/data/test980, tests/data/test981,
+      tests/data/test982, tests/data/test983.
+    - CVE-2021-22947
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Fri, 10 Sep 2021 10:28:17 -0400
+
 curl (7.68.0-1ubuntu2.6) focal-security; urgency=medium
 
   * SECURITY UPDATE: TELNET stack contents disclosure
