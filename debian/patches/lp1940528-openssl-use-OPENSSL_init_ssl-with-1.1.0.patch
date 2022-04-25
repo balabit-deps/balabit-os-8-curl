@@ -1,0 +1,59 @@
+From 1f5baccc5040294d28de6ad58d399db60fd2eee3 Mon Sep 17 00:00:00 2001
+From: Daniel Stenberg <daniel@haxx.se>
+Date: Sat, 28 Nov 2020 16:42:52 +0100
+Subject: [PATCH] openssl: use OPENSSL_init_ssl() with >= 1.1.0
+
+Reported-by: Kovalkov Dmitrii and Per Nilsson
+Fixes #6254
+Fixes #6256
+Closes #6260
+
+(cherry picked from commit 1835cb916e0d40eb8bc1165d5627a0b64f911bac)
+Signed-off-by: Dimitri John Ledkov <dimitri.ledkov@canonical.com>
+---
+
+ BugLink: https://bugs.launchpad.net/bugs/1940528
+
+ lib/vtls/openssl.c | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
+
+diff --git a/lib/vtls/openssl.c b/lib/vtls/openssl.c
+index 726ff6e7ca..5872a6805b 100644
+--- a/lib/vtls/openssl.c
++++ b/lib/vtls/openssl.c
+@@ -1025,6 +1025,21 @@ static int Curl_ossl_init(void)
+   char *keylog_file_name;
+ #endif
+ 
++#if (OPENSSL_VERSION_NUMBER >= 0x10100000L) &&  \
++  !defined(LIBRESSL_VERSION_NUMBER)
++  const uint64_t flags =
++#ifdef OPENSSL_INIT_ENGINE_ALL_BUILTIN
++    /* not present in BoringSSL */
++    OPENSSL_INIT_ENGINE_ALL_BUILTIN |
++#endif
++#ifdef CURL_DISABLE_OPENSSL_AUTO_LOAD_CONFIG
++    OPENSSL_INIT_NO_LOAD_CONFIG |
++#else
++    OPENSSL_INIT_LOAD_CONFIG |
++#endif
++    0;
++  OPENSSL_init_ssl(flags, NULL);
++#else
+   OPENSSL_load_builtin_modules();
+ 
+ #ifdef USE_OPENSSL_ENGINE
+@@ -1043,10 +1058,6 @@ static int Curl_ossl_init(void)
+                          CONF_MFLAGS_IGNORE_MISSING_FILE);
+ #endif
+ 
+-#if (OPENSSL_VERSION_NUMBER >= 0x10100000L) && \
+-    !defined(LIBRESSL_VERSION_NUMBER)
+-  /* OpenSSL 1.1.0+ takes care of initialization itself */
+-#else
+   /* Lets get nice error messages */
+   SSL_load_error_strings();
+ 
+-- 
+2.32.0
+

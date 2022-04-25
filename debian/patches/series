@@ -18,7 +18,15 @@ CVE-2021-22925.patch
 CVE-2021-22946-pre1.patch
 CVE-2021-22946.patch
 CVE-2021-22947.patch
+lp1940528-openssl-use-OPENSSL_init_ssl-with-1.1.0.patch
 
 # do not add patches below
+CVE-2022-22576.patch
+CVE-2022-27774-1.patch
+CVE-2022-27774-2.patch
+CVE-2022-27774-3pre.patch
+CVE-2022-27774-3.patch
+CVE-2022-27775.patch
+CVE-2022-27776.patch
 90_gnutls.patch
 99_nss.patch
