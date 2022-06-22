@@ -30,5 +30,7 @@ CVE-2022-27781.patch
 CVE-2022-27782.patch
 
 # do not add patches below
+CVE-2022-32206.patch
+CVE-2022-32208.patch
 90_gnutls.patch
 99_nss.patch

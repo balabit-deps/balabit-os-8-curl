@@ -1,3 +1,16 @@
+curl (7.68.0-1ubuntu2.12) focal-security; urgency=medium
+
+  * SECURITY UPDATE: HTTP compression denial of service
+    - debian/patches/CVE-2022-32206.patch: return error on too many
+      compression steps in lib/content_encoding.c.
+    - CVE-2022-32206
+  * SECURITY UPDATE: FTP-KRB bad msg verification
+    - debian/patches/CVE-2022-32208.patch: return error properly
+      on decode errors in lib/krb5.c.
+    - CVE-2022-32208
+
+ -- Leonidas Da Silva Barbosa <leo.barbosa@canonical.com>  Wed, 22 Jun 2022 11:49:28 -0300
+
 curl (7.68.0-1ubuntu2.11) focal-security; urgency=medium
 
   * SECURITY UPDATE: CERTINFO never-ending busy-loop
