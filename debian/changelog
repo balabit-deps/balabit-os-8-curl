@@ -1,3 +1,13 @@
+curl (7.68.0-1ubuntu2.13) focal-security; urgency=medium
+
+  * SECURITY UPDATE: when curl sends back cookies with control bytes a
+    HTTP(S) server may return a 400 response
+    - debian/patches/CVE-2022-35252.patch: adds invalid_octets function
+      to lib/cookie.c to reject cookies with control bytes
+    - CVE-2022-35252
+
+ -- Mark Esler <mark.esler@canonical.com>  Wed, 31 Aug 2022 14:18:34 -0500
+
 curl (7.68.0-1ubuntu2.12) focal-security; urgency=medium
 
   * SECURITY UPDATE: HTTP compression denial of service
