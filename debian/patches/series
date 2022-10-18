@@ -31,6 +31,7 @@ CVE-2022-27782.patch
 CVE-2022-32206.patch
 CVE-2022-32208.patch
 CVE-2022-35252.patch
+CVE-2022-32221.patch
 
 # do not add patches below
 90_gnutls.patch
