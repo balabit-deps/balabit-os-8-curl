@@ -1,3 +1,12 @@
+curl (7.68.0-1ubuntu2.15) focal-security; urgency=medium
+
+  * SECURITY UPDATE: HTTP Proxy deny use-after-free
+    - debian/patches/CVE-2022-43552.patch: do not free the protocol struct
+      in *_done() in lib/smb.c, lib/telnet.c.
+    - CVE-2022-43552
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 04 Jan 2023 12:03:45 -0500
+
 curl (7.68.0-1ubuntu2.14) focal-security; urgency=medium
 
   * SECURITY UPDATE: POST following PUT confusion
