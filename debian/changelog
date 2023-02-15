@@ -1,3 +1,13 @@
+curl (7.68.0-1ubuntu2.16) focal-security; urgency=medium
+
+  * SECURITY UPDATE: HTTP multi-header compression denial of service
+    - debian/patches/CVE-2023-23916.patch: do not reset stage counter for
+      each header in lib/content_encoding.c, lib/urldata.h,
+      tests/data/Makefile.inc, tests/data/test418.
+    - CVE-2023-23916
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 15 Feb 2023 08:31:00 -0500
+
 curl (7.68.0-1ubuntu2.15) focal-security; urgency=medium
 
   * SECURITY UPDATE: HTTP Proxy deny use-after-free
