@@ -1,3 +1,12 @@
+curl (7.68.0-1ubuntu2.21) focal-security; urgency=medium
+
+  * SECURITY UPDATE: cookie mixed case PSL bypass
+    - debian/patches/CVE-2023-46218.patch: lowercase the domain names
+      before PSL checks in lib/cookie.c.
+    - CVE-2023-46218
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 29 Nov 2023 14:26:14 -0500
+
 curl (7.68.0-1ubuntu2.20) focal-security; urgency=medium
 
   * SECURITY UPDATE: cookie injection with none file
