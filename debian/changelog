@@ -1,3 +1,12 @@
+curl (7.68.0-1ubuntu2.22) focal-security; urgency=medium
+
+  * SECURITY UPDATE: HTTP/2 push headers memory-leak
+    - debian/patches/CVE-2024-2398.patch: push headers better cleanup in
+      lib/http2.c.
+    - CVE-2024-2398
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Tue, 19 Mar 2024 09:53:11 -0400
+
 curl (7.68.0-1ubuntu2.21) focal-security; urgency=medium
 
   * SECURITY UPDATE: cookie mixed case PSL bypass
