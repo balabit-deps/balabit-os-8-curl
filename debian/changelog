@@ -1,3 +1,12 @@
+curl (7.68.0-1ubuntu2.24) focal-security; urgency=medium
+
+  * SECURITY UPDATE: OCSP stapling bypass with GnuTLS
+    - debian/patches/CVE-2024-8096.patch: fix OCSP stapling management in
+      lib/vtls/gtls.c.
+    - CVE-2024-8096
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Fri, 06 Sep 2024 11:00:30 -0400
+
 curl (7.68.0-1ubuntu2.23) focal-security; urgency=medium
 
   * SECURITY UPDATE: ASN.1 date parser overread
